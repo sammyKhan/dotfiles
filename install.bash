@@ -1,5 +1,3 @@
-#!/bin/bash
-
 backup_dir="$HOME/.dotfiles_old/"
 
 mkdir -p "$backup_dir"
@@ -13,22 +11,24 @@ do
   if [ -e "$original" ] || [ -h "$original" ]; then
     # make backup if it doesn't exist yet
     if [ ! -e "$backup_dir.$file" ]; then
-      echo "Backing up $original"
+      echo "Backing up $original $backup_dir"
       mv "$original" "$backup_dir"
     fi
 
-    echo "removing $original"
-    rm "$original"
-    
     # symlink the new file into home
     if [ ! -e "$original" ]; then
       echo "ln -s `pwd`/$file.sym $original"
-      ln -s "`pwd`/$file.sym" "$original" 
+      ln -s "`pwd`/$file.sym" "$original"
     fi
-    
+
   # original doesn't exist
   else
     echo "skipping $original"
   fi
 done
 
+if [ -e "$HOME/.zshrc" ]; then
+  source "$HOME/.zshrc"
+else
+  source "$HOME/.bashrc"
+fi

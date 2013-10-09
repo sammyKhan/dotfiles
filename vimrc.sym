@@ -1,0 +1,28 @@
+"IDE like features
+filetype plugin on
+filetype indent on
+syntax enable
+
+"enable plugins
+execute pathogen#infect()
+
+"Show line numbers
+set number
+
+"No sound on errors
+set noerrorbells
+set novisualbell
+
+"colorscheme
+set background=dark
+colorscheme solarized 
+
+" 1 tab == 2 spaces
+set expandtab
+set shiftwidth=2
+set tabstop=2
+
+set ai "Auto indent
+set si "Smart indent
+
+:nmap ; :
