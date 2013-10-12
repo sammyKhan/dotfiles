@@ -1,3 +1,7 @@
 set -o vi
 export EDITOR=vi
-tmux attach || tmux new
+# from http://bionicraptor.ca/2011/07/24/automatically-start-tmux/
+
+if [ `which tmux 2> /dev/null` -a -z "$TMUX" ]; then
+    tmux -2 attach || tmux -2 new; exit
+fi
