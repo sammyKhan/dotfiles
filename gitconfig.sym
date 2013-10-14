@@ -7,3 +7,4 @@
 	helper = osxkeydc
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
