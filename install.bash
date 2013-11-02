@@ -8,7 +8,7 @@ do
   original="$HOME/.$file"
 
   # make backup if a backup doesn't exist yet
-  if [ ! -e "$backup_dir.$file" ]; then
+  if [ -e "$original" ] && [ ! -e "$backup_dir.$file" ]; then
     echo "Backing up $original $backup_dir"
     mv "$original" "$backup_dir"
   fi
