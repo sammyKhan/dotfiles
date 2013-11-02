@@ -17,3 +17,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
 fi
 
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+fi
