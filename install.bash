@@ -2,6 +2,8 @@ backup_dir="$HOME/.dotfiles_old/"
 
 mkdir -p "$backup_dir"
 
+#need to handle new files better -> backup right away
+
 # symlink all .sym files into home dir
 for file in `find . -name '*.sym' | cut -c 3- | rev | cut -c 5- | rev`
 do
@@ -34,8 +36,3 @@ fi
 
 #source new bash file
 source ~/.bashrc
-
-#source machine-specific config
-if [ -f ~/.bashrc_local ]; then
-  source ~/.bashrc_local
-fi

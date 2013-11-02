@@ -17,6 +17,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
 fi
 
+#source aliases
 if [ -f ~/.aliases ]; then
   source ~/.aliases
+fi
+
+#source machine-specific config
+if [ -f ~/.bashrc_local ]; then
+  source ~/.bashrc_local
 fi
