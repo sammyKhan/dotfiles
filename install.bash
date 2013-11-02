@@ -34,3 +34,8 @@ fi
 
 #source new bash file
 source ~/.bashrc
+
+#source machine-specific config
+if [ -f ~/.bashrc_local ]; then
+  source ~/.bashrc_local
+fi
