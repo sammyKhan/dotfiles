@@ -3,6 +3,7 @@ backup_dir="$HOME/.dotfiles_old/"
 mkdir -p "$backup_dir"
 
 #need to handle new files better -> backup right away
+#right now needs to be called from dotfiles folder
 
 # symlink all .sym files into home dir
 for file in `find . -name '*.sym' | cut -c 3- | rev | cut -c 5- | rev`
@@ -32,6 +33,11 @@ fi
 #install vim colorscheme
 if [ ! -e ~/.vim/bundle/molokai ]; then
   git clone https://github.com/tomasr/molokai ~/.vim/bundle/molokai
+fi
+
+#install syntax checking plugin
+if [ ! -e ~/.vim/bundle/syntastic ]; then
+  git clone https://github.com/scrooloose/syntastic ~/.vim/bundle/syntastic
 fi
 
 #source new bash file
