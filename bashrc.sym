@@ -26,3 +26,5 @@ fi
 if [ -f ~/.bashrc_local ]; then
   source ~/.bashrc_local
 fi
+
+export PATH='/usr/local/bin:$PATH'
