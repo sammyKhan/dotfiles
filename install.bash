@@ -40,5 +40,10 @@ if [ ! -e ~/.vim/bundle/syntastic ]; then
   git clone https://github.com/scrooloose/syntastic ~/.vim/bundle/syntastic
 fi
 
+#install file finder
+if [ ! -e ~/.vim/bundle/ctrlp ]; then
+  git clone https://github.com/kien/ctrlp.vim ~/.vim/bundle/ctrp
+fi
+
 #source new bash file
 source ~/.bashrc
