@@ -23,6 +23,12 @@ do
   fi
 done
 
+#merge .folders
+for dir in */
+do
+  cp -R "$dir" "../.$dir"
+done
+
 #install vim pathogen
 if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
   mkdir -p ~/.vim/autoload ~/.vim/bundle
