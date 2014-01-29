@@ -48,7 +48,7 @@ fi
 
 #install file finder
 if [ ! -e ~/.vim/bundle/ctrlp ]; then
-  git clone https://github.com/kien/ctrlp.vim ~/.vim/bundle/ctrp
+  git clone https://github.com/kien/ctrlp.vim ~/.vim/bundle/ctrlp
 fi
 
 #source new bash file
