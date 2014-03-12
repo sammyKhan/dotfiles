@@ -1,5 +1,6 @@
 alias ..="cd .."
 alias ...="cd ../.."
+alias l=ls
 
 #redraw tmux to fit current window
 alias takeover="tmux detach -a"
