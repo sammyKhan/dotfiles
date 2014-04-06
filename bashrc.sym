@@ -6,9 +6,7 @@ if [ `which tmux 2> /dev/null` -a -z "$TMUX" ]; then
     tmux -2 attach || tmux -2 new
 fi
 
-#red spermy arrow prompt
-#PS1="\[\e[1;31m\]~>\[\e[0m\] "
-PS1="$(tput setaf 1)~>$(tput sgr0)"
+PS1="\[$(tput setaf 6)\]\w\n\[$(tput sgr0)\]"
 
 #enable colorful ls (taken from ubuntu bashrc)
 if [ -x /usr/bin/dircolors ]; then
