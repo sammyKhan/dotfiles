@@ -51,5 +51,8 @@ if [ ! -e ~/.vim/bundle/ctrlp ]; then
   git clone https://github.com/kien/ctrlp.vim ~/.vim/bundle/ctrlp
 fi
 
+#add local bashrc file
+touch ~/.bashrc_local
+
 #source new bash file
 source ~/.bashrc
