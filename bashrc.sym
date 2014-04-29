@@ -1,9 +1,14 @@
 set -o vi
 export EDITOR=vi
 
-# adapted from http://bionicraptor.ca/2011/07/24/automatically-start-tmux/
-if [ `which tmux 2> /dev/null` -a -z "$TMUX" ]; then
-    tmux -2 attach || tmux -2 new
+#start tmux
+if which tmux 2>&1 >/dev/null; then
+    test -z "$TMUX" && (tmux attach || tmux new-session)
+fi
+
+if [[ "$TERM" != "screen" ]] &&
+    [[ "$SSH_CONNECTION" == "" ]]; then
+    test -z "$TMUX" && (tmux attach || tmux new-session)
 fi
 
 PS1="\[$(tput setaf 6)\]\w\n\[$(tput sgr0)\]"
