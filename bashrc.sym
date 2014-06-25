@@ -1,31 +1,30 @@
 set -o vi
 export EDITOR=vi
+export TERM=xterm-256color
 
-#start tmux
-if which tmux 2>&1 >/dev/null; then
-    test -z "$TMUX" && (tmux attach || tmux new-session)
-fi
-
+# start tmux
 if [[ "$TERM" != "screen" ]] &&
     [[ "$SSH_CONNECTION" == "" ]]; then
     test -z "$TMUX" && (tmux attach || tmux new-session)
 fi
 
-PS1="\[$(tput setaf 6)\]\w\n\[$(tput sgr0)\]"
+#nice prompt
+PS1="\[$(tput setaf 197)\]\w\n\[$(tput setaf 252)\]"
 
-#enable colorful ls (taken from ubuntu bashrc)
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-fi
+#format for xterm 256 colors is 38;5;XX
+x="38;5;"
+#rs regular file
+#di directory
+#ln symlink
+#ex executable
+export LS_COLORS="rs=0:di=38;5;208:ln=38;5;141:ex=38;5;154"
 
 #source aliases
 if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
-#source machine-specific config
+#source local config
 if [ -f ~/.bashrc_local ]; then
   source ~/.bashrc_local
 fi
