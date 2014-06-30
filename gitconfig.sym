@@ -3,8 +3,6 @@
 	email = samk1200@gmail.com
 [color]
 	ui = auto
-[credential]
-	helper = osxkeydc
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
