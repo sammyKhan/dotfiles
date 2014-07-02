@@ -1,6 +1,10 @@
 set-window-option -g mode-keys vi
 bind-key -t vi-copy 'v' begin-selection
 bind-key -t vi-copy 'y' copy-selection
+bind-key -r j select-pane -U
+bind-key -r k select-pane -D
+bind-key -r h select-pane -L
+bind-key -r l select-pane -R
 set -g default-terminal "screen-256color"
 set -g base-index 1
 set -g status-bg colour208 
