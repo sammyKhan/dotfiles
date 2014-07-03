@@ -2,6 +2,13 @@
 backup_dir="$HOME/.dotfiles_old/"
 mkdir -p "$backup_dir"
 
+# where to log errors to
+logfile="$backup_dir/log"
+
+function log {
+  echo "[$( date )]: $*" >> $logfile
+}
+
 # save the current pwd so we can cd back to it after
 pwd=$(pwd)
 
@@ -17,21 +24,23 @@ do
 
   # make backup if a backup doesn't exist yet
   if [ -e "$original" ] && [ ! -e "$backup_dir.$file" ]; then
-    echo "Backing up $original $backup_dir"
-    mv "$original" "$backup_dir"
+    log Backing up $original to $backup_dir
+    mv "$original" "$backup_dir" 2>>$logfile
   fi
 
   # symlink the file into home
   if [ ! -e "$original" ]; then
-    echo "ln -s $df_dir/$file.sym $original"
-    ln -s "$df_dir/$file.sym" "$original"
+    log "ln -s $df_dir/$file.sym $original"
+    ln -s "$df_dir/$file.sym" "$original" 2>>$logfile
   fi
 done
 
 #merge .folders
 for dir in $( basename $(find $df_dir -depth 1 -type d -not -name .git) )
 do
-  ln -s "$df_dir/$dir" "$HOME/.$dir"
+  if [ ! -e "$HOME/.$dir" ]; then
+    ln -s "$df_dir/$dir" "$HOME/.$dir"
+  fi
 done
 
 #install vim pathogen
@@ -44,11 +53,6 @@ fi
 #install syntax checking plugin
 if [ ! -e ~/.vim/bundle/syntastic ]; then
   git clone https://github.com/scrooloose/syntastic ~/.vim/bundle/syntastic
-fi
-
-#install file finder
-if [ ! -e ~/.vim/bundle/ctrlp ]; then
-  git clone https://github.com/kien/ctrlp.vim ~/.vim/bundle/ctrlp
 fi
 
 #add local bashrc file
