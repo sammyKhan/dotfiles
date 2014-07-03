@@ -7,8 +7,10 @@ The idea is to be able to install them on "any" workstation I use. That means ne
 I only include things I actually understand and use. That means as few copy-pasted or complicated settings as possible.
 
 ## To Install
+```
 cd && git clone https://github.com/sammyKhan/dotfiles
 bash dotfiles/install.bash
+```
 
 ## To Do
   * give option to download extras (ie. zsh, vim plugins etc.)
