@@ -1,12 +1,12 @@
+# directory to backup old dotfiles to
 backup_dir="$HOME/.dotfiles_old/"
-
 mkdir -p "$backup_dir"
 
-#need to handle new files better -> backup right away
-#right now needs to be called from dotfiles folder
+# directory this script lives in
+df_dir=$( dirname "$0" )
 
 # symlink all .sym files into home dir
-for file in `find . -name '*.sym' | cut -c 3- | rev | cut -c 5- | rev`
+for file in $( basename -s .sym $(find "$df_dir" -name '*.sym') )
 do
   original="$HOME/.$file"
 
@@ -18,15 +18,16 @@ do
 
   # symlink the file into home
   if [ ! -e "$original" ]; then
-    echo "ln -s `pwd`/$file.sym $original"
-    ln -s "`pwd`/$file.sym" "$original"
+    echo "ln -s $df_dir/$file.sym $original"
+    ln -s "$df_dir/$file.sym" "$original"
   fi
 done
 
 #merge .folders
-for dir in */
+for dir in $(find $df_dir -depth 1 -type d -not -name .git)
 do
-  cp -R "$dir" "../.$dir"
+  echo cp -R "$dir" "$HOME/.$( basename $dir )"
+  #cp -R "$dir" "../.$dir"
 done
 
 #install vim pathogen
@@ -34,11 +35,6 @@ if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
   mkdir -p ~/.vim/autoload ~/.vim/bundle
   curl -Sso ~/.vim/autoload/pathogen.vim \
     https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-fi
-
-#install vim colorscheme
-if [ ! -e ~/.vim/bundle/molokai ]; then
-  git clone https://github.com/tomasr/molokai ~/.vim/bundle/molokai
 fi
 
 #install syntax checking plugin
