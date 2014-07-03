@@ -1,9 +1,16 @@
-# My dotfiles
+# My dotfiles are...
 
-Piecing together my development environment :)
+## Portable
+The idea is to be able to install them on "any" workstation I use. That means newish Linux or OS X.
 
-The install script backs up the corresponding files on the system and replaces them with symlinks to the files in this repo.
+## Understandable
+I only include things I actually understand and use. That means as few copy-pasted or complicated settings as possible.
 
-## To do
+## To Install
+cd && git clone https://github.com/sammyKhan/dotfiles
+bash dotfiles/install.bash
+
+## To Do
   * give option to download extras (ie. zsh, vim plugins etc.)
   * allow configuration of variables (eg. git user-name)
+
