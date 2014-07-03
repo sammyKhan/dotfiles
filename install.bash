@@ -2,8 +2,13 @@
 backup_dir="$HOME/.dotfiles_old/"
 mkdir -p "$backup_dir"
 
+# save the current pwd so we can cd back to it after
+pwd=$(pwd)
+
+cd $HOME
+
 # directory this script lives in
-df_dir=$( dirname "$0" )
+df_dir=$( dirname "$pwd/$0" )
 
 # symlink all .sym files into home dir
 for file in $( basename -s .sym $(find "$df_dir" -name '*.sym') )
@@ -24,10 +29,9 @@ do
 done
 
 #merge .folders
-for dir in $(find $df_dir -depth 1 -type d -not -name .git)
+for dir in $( basename $(find $df_dir -depth 1 -type d -not -name .git) )
 do
-  echo cp -R "$dir" "$HOME/.$( basename $dir )"
-  #cp -R "$dir" "../.$dir"
+  ln -s "$df_dir/$dir" "$HOME/.$dir"
 done
 
 #install vim pathogen
@@ -52,3 +56,5 @@ touch ~/.bashrc_local
 
 #source new bash file
 source ~/.bashrc
+
+cd $pwd
