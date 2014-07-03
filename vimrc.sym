@@ -12,8 +12,6 @@ set novisualbell
 
 "colorscheme
 set t_Co=256
-let g:molokai_original = 1
-let g:rehash256 = 1
 colorscheme molokai 
 
 " display tabs as 8 columns of space
