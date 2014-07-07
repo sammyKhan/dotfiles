@@ -1,5 +1,5 @@
 alias ..="cd .."
-alias ...="cd ../.."
+alias c=clear
 alias ls="ls --color"
 alias l=ls
 alias loc="vi ~/.bashrc_local && source ~/.bashrc_local"
