@@ -46,15 +46,8 @@ do
 done
 
 #install vim pathogen
-if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
-  mkdir -p ~/.vim/autoload ~/.vim/bundle
-  curl -Sso ~/.vim/autoload/pathogen.vim \
-    https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-fi
-
-#install syntax checking plugin
-if [ ! -e ~/.vim/bundle/syntastic ]; then
-  git clone https://github.com/scrooloose/syntastic ~/.vim/bundle/syntastic
+if [ ! -f ~/.vim/bundle/Vundle.vim ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
 #add local bashrc file
