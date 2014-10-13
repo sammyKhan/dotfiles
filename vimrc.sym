@@ -1,10 +1,17 @@
-"IDE like features
-filetype plugin on
-filetype indent on
-syntax enable
+"Set up Vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
+call vundle#end()
 
-"enable plugins
-execute pathogen#infect()
+"IDE like features
+filetype plugin indent on
+syntax enable
 
 "No sound on errors
 set noerrorbells
@@ -25,3 +32,6 @@ set ai "Auto indent
 
 :nmap ; :
 :nmap <space> zz
+
+set tags=./tags;/
+set backspace=indent,eol,start
