@@ -15,11 +15,12 @@ pwd=$(pwd)
 cd $HOME
 
 # directory this script lives in
-df_dir=$( dirname "$pwd/$0" )
+df_dir=$( dirname $pwd/$0 )
 
 # symlink all .sym files into home dir
-for file in $( basename -s .sym $(find "$df_dir" -name '*.sym') )
+for filename in $(find "$df_dir" -name '*.sym')
 do
+  file=$( basename $filename .sym )
   original="$HOME/.$file"
 
   # make backup if a backup doesn't exist yet
@@ -36,8 +37,9 @@ do
 done
 
 #merge .folders
-for dir in $( basename $(find $df_dir -depth 1 -type d -not -name .git) )
+for dirname in $(find "$df_dir" -maxdepth 1 -mindepth 1 -type d -not -name .git)
 do
+  dir=$( basename $dirname )
   if [ ! -e "$HOME/.$dir" ]; then
     ln -s "$df_dir/$dir" "$HOME/.$dir"
   fi

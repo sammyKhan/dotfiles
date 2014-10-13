@@ -14,8 +14,10 @@ Vim style key-bindings are used wherever possible.
 cd && git clone https://github.com/sammyKhan/dotfiles
 bash dotfiles/install.bash
 ```
+This backs up existing dotfiles and symlinks to the ones in this repo.
 
 ## To Do
-  * give option to download extras (ie. zsh, vim plugins etc.)
-  * allow configuration of variables (eg. git user-name)
+  * make syntastic optional
+  * give option to restore from backup
+  * allow configuration of variables from install script (eg. git user-name)
 

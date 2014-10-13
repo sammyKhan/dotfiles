@@ -1,4 +1,3 @@
-
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
@@ -9,31 +8,32 @@
 "
 
 hi clear
+hi clear MatchParen
 
 hi Normal          ctermfg=252
 hi Boolean         ctermfg=141
 hi Character       ctermfg=222
 hi Number          ctermfg=141
 hi String          ctermfg=222
-hi Conditional     ctermfg=197             
-hi Constant        ctermfg=141             
+hi Conditional     ctermfg=197            
+hi Constant        ctermfg=141            
 
 hi DiffDelete      ctermfg=125 ctermbg=233
 
-hi Directory       ctermfg=154             
+hi Directory       ctermfg=154            
 hi Error           ctermfg=222 ctermbg=233
-hi Exception       ctermfg=154             
+hi Exception       ctermfg=154            
 hi Float           ctermfg=141
 hi Function        ctermfg=154
 hi Identifier      ctermfg=208
 
-hi Keyword         ctermfg=197             
+hi Keyword         ctermfg=197            
 hi Operator        ctermfg=197
-hi PreCondit       ctermfg=154             
+hi PreCondit       ctermfg=154            
 hi PreProc         ctermfg=154
-hi Repeat          ctermfg=197             
+hi Repeat          ctermfg=197            
 
-hi Statement       ctermfg=197             
+hi Statement       ctermfg=197            
 hi Tag             ctermfg=197
 hi Title           ctermfg=203
 hi Visual                      ctermbg=238
