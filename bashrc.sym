@@ -2,9 +2,9 @@ set -o vi
 export EDITOR=vi
 export TERM=xterm-256color
 
-# start tmux
+# start tmux if it's available and we're not a ssh or tmux/screen sesh
 if [[ "$TERM" != "screen" ]] && [[ "$SSH_CONNECTION" == "" ]]; then
-    test -z "$TMUX" && (tmux attach || tmux new-session)
+    command -v tmux || test -z "$TMUX" && (tmux attach || tmux new-session)
 fi
 
 #nice prompt
