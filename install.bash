@@ -40,6 +40,15 @@ done
 for dirname in $(find "$df_dir" -maxdepth 1 -mindepth 1 -type d -not -name .git)
 do
   dir=$( basename $dirname )
+  original="$HOME/.$file"
+
+  # make backup if a backup doesn't exist yet
+  if [ -e "$original" ] && [ ! -e "$backup_dir.$dir" ]; then
+    log Backing up $original to $backup_dir
+    mv "$original" "$backup_dir" 2>>$logfile
+  fi
+
+
   if [ ! -e "$HOME/.$dir" ]; then
     ln -s "$df_dir/$dir" "$HOME/.$dir"
   fi
