@@ -15,10 +15,10 @@ pwd=$(pwd)
 cd $HOME
 
 # directory this script lives in
-df_dir=$( dirname $pwd/$0 )
+dotfiles_path=$( dirname $pwd/$0 )
 
 # symlink all .sym files into home dir
-for filename in $(find "$df_dir" -name '*.sym')
+for filename in $(find "$dotfiles_path" -name '*.sym')
 do
   file=$( basename $filename .sym )
   original="$HOME/.$file"
@@ -31,26 +31,26 @@ do
 
   # symlink the file into home
   if [ ! -e "$original" ]; then
-    log "ln -s $df_dir/$file.sym $original"
-    ln -s "$df_dir/$file.sym" "$original" 2>>$logfile
+    log "ln -s $dotfiles_path/$file.sym $original"
+    ln -s "$dotfiles_path/$file.sym" "$original" 2>>$logfile
   fi
 done
 
 #merge .folders
-for dirname in $(find "$df_dir" -maxdepth 1 -mindepth 1 -type d -not -name .git)
+for dirpath in $(find "$dotfiles_path" -maxdepth 1 -mindepth 1 -type d -not -name .git)
 do
-  dir=$( basename $dirname )
-  original="$HOME/.$file"
+  dirname=$( basename $dirpath )
+  original="$HOME/.$dirname"
 
   # make backup if a backup doesn't exist yet
-  if [ -e "$original" ] && [ ! -e "$backup_dir.$dir" ]; then
+  if [ -e "$original" ] && [ ! -e "$backup_dir.$dirname" ]; then
     log Backing up $original to $backup_dir
     mv "$original" "$backup_dir" 2>>$logfile
   fi
 
 
-  if [ ! -e "$HOME/.$dir" ]; then
-    ln -s "$df_dir/$dir" "$HOME/.$dir"
+  if [ ! -e "$HOME/.$dirname" ]; then
+    ln -s "$dotfiles_path/$dirname" "$HOME/.$dirname"
   fi
 done
 
