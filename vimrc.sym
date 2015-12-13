@@ -3,7 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
@@ -33,5 +33,10 @@ set ai "Auto indent
 :nmap ; :
 :nmap <space> zz
 
-set tags=./tags;/
+" highlight as you search
+set incsearch
+" ignore case except when search string includes upper
+set ignorecase
+set smartcase
+
 set backspace=indent,eol,start
