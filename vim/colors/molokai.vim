@@ -8,7 +8,7 @@
 "
 
 hi clear
-hi clear MatchParen
+hi MatchParen      ctermfg=none ctermbg=247
 
 hi Normal          ctermfg=252
 hi Boolean         ctermfg=141

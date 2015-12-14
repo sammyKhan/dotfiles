@@ -11,6 +11,11 @@ export LS_COLORS="rs=0:di=38;5;208:ln=38;5;141:ex=38;5;154"
 #for BSD ls
 export LSCOLORS="dxfxxxxxbxxxxxxxxxxxxx"
 
+#append, rather than overwrite bash history
+#this allows multiple terminals to share a history
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+
 #source aliases
 if [ -f ~/.aliases ]; then
   source ~/.aliases
