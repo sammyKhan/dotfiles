@@ -1,5 +1,6 @@
 "Set up Vundle
 filetype off
+set mouse=a
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -9,8 +10,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
-"IDE like features
-filetype plugin indent on
 syntax enable
 
 "No sound on errors
@@ -35,3 +34,6 @@ set ai "Auto indent
 
 set tags=./tags;/
 set backspace=indent,eol,start
+
+source ~/.vimrc_local
+filetype plugin indent on
