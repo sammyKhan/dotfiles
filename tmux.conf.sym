@@ -19,3 +19,4 @@ set -g status-fg black
 set -g mouse-resize-pane on
 set -g mouse-select-pane on
 set -g mouse-select-window on
+source-file ~/.tmux.conf_local
