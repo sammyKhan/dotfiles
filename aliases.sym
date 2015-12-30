@@ -1,7 +1,8 @@
 alias ..="cd .."
 alias ...="cd ../.."
 alias l=ls
-alias loc="vim ~/.bashrc_local && source ~/.bashrc_local"
+alias v=vim
+alias loc="v ~/.bashrc_local && source ~/.bashrc_local"
 
 #redraw tmux to fit current window
 alias takeover="tmux detach -a"
