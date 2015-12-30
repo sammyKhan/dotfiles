@@ -1,7 +1,11 @@
-alias ..="cd .."
-alias ...="cd ../.."
+alias c=cd
+alias ..="c .."
+alias ...="c ../.."
+
 alias l=ls
+
 alias v=vim
+
 alias loc="v ~/.bashrc_local && source ~/.bashrc_local"
 
 #redraw tmux to fit current window
