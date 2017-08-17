@@ -8,6 +8,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 
 syntax enable
@@ -43,3 +46,9 @@ set backspace=indent,eol,start
 
 source ~/.vimrc_local
 filetype plugin indent on
+" When searching, center result on screen.
+"set scrolloff=999
+noremap ,e :e <C-r>=expand("%:p:h")."/"<cr>
+
+" Y's behavior should be like C and D, not yy
+nnoremap Y y$
