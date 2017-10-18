@@ -59,10 +59,12 @@ if [ ! -e ~/.vim/bundle/Vundle.vim ]; then
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-#add local bashrc file
+#add local files
 touch ~/.bashrc_local
+touch ~/.vimrc_local
 
-#source new bash file
+#source local files
 source ~/.bashrc
+source ~/.vimrc_local
 
 cd $pwd
