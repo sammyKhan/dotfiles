@@ -42,3 +42,4 @@ hi Comment         ctermfg=244
 hi LineNr          ctermfg=239 ctermbg=235
 hi NonText         ctermfg=239
 hi SpecialKey      ctermfg=239
+hi SpellBad                    ctermbg=235
