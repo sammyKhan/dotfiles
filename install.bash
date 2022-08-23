@@ -48,7 +48,6 @@ do
     mv "$original" "$backup_dir" 2>>$logfile
   fi
 
-
   if [ ! -e "$HOME/.$dirname" ]; then
     ln -s "$dotfiles_path/$dirname" "$HOME/.$dirname"
   fi
@@ -65,6 +64,6 @@ touch ~/.vimrc_local
 
 #source local files
 source ~/.bashrc
-source ~/.vimrc_local
+source ~/.bashrc_local
 
 cd $pwd
