@@ -35,7 +35,7 @@ function install_symlinks {
 
 mkdir -p "${BACKUP_DIR}"
 install_symlinks
-touch ~/.bashrc_local ~/.vimrc_local
+touch ~/.bashrc_local ~/.vimrc_local ~/.tmux.conf_local
 source ~/.bashrc
 if [ ! -e ~/.vim/bundle/Vundle.vim ]; then
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
